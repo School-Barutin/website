@@ -45,3 +45,9 @@
   font-size: 17px;
   top: 1px;
 }
+
+#slogan {
+  margin-left: 10px;
+  position: relative;
+  top: -6px;
+}

@@ -13,6 +13,7 @@ const NavbarComponent = () => (
             src={websiteIcon}
             alt="Our icon cannot be displayed. Sorry!"
           />
+          <span id="slogan">ОУ "Никола Вапрцаров"</span>
         </Link>
       </Navbar.Brand>
       <Navbar.Toggle />
