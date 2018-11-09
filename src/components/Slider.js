@@ -4,7 +4,7 @@ import RouteLink from "./RouteLink";
 import { sliderStructure } from "../websiteConfig";
 
 const Slider = () => (
-  <Carousel id="home-slider" controls={false} interval={3500}>
+  <Carousel id="home-slider" controls={true} interval={3000}>
     {sliderStructure.map((ev, i) => (
       <Carousel.Item key={i}>
         <RouteLink href={ev.href}>

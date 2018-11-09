@@ -7,6 +7,16 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import ScheduleTable from "../../components/ScheduleTable";
 
+const scheduleClasses = [
+  "Първи",
+  "Втори",
+  "Трети",
+  "Четвърти",
+  "Пети",
+  "Шести",
+  "Седми"
+];
+
 function TabContainer(props) {
   return (
     <Typography component="div" style={{ padding: 15, paddingTop: 0 }}>
@@ -49,8 +59,9 @@ class SimpleTabs extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Tabs value={value} onChange={this.handleChange}>
-            <Tab className={classes.tabHeading} label="Първи" />
-            <Tab className={classes.tabHeading} label="Втори" />
+            {scheduleClasses.map(klass => (
+              <Tab className={classes.tabHeading} label={klass} />
+            ))}
           </Tabs>
         </AppBar>
         <TabContainer>

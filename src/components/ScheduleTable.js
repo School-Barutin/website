@@ -24,13 +24,19 @@ const styles = theme => ({
   }
 });
 
+const defaultDuration = {
+  lesson: 45,
+  bigBreak: 20,
+  break: 10
+};
+
+const days = ["Понеделник", "Вторник", "Сряда", "Четвъртък", "Петък"];
+
 class SimpleTable extends React.Component {
   state = {};
 
   componentDidMount = () => {
-    const { grade } = this.props;
     const collection = `schedule/studyPeriod1/classes/`;
-
     db.collection(collection)
       .get()
       .then(snapshot =>
@@ -43,28 +49,18 @@ class SimpleTable extends React.Component {
   render() {
     const { classes, grade } = this.props;
     const { schedule } = this.state;
-    const lessons = schedule && schedule[grade] && schedule[grade].data()
+    const lessons = schedule && schedule[grade] && schedule[grade].data();
 
     return (
       <Paper className={classes.root}>
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
-              <TableCell>
-                <Typography variant="display1">Понеделник</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="display1">Вторник</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="display1">Сряда</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="display1">Четвъртък</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="display1">Петък</Typography>
-              </TableCell>
+              {days.map(day => (
+                <TableCell>
+                  <Typography variant="display1">{day}</Typography>
+                </TableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -96,7 +92,7 @@ class SimpleTable extends React.Component {
               <TableRow>
                 <TableCell colSpan={6}>
                   <Typography variant="headline">
-                    Зареждане... {this.props.grade}
+                    Зареждане...
                   </Typography>
                 </TableCell>
               </TableRow>

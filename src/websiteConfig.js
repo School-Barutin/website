@@ -53,10 +53,6 @@ export const navBarStructure = [
   {
     text: "Наша гордост",
     href: "/achievements"
-  },
-  {
-    text: "Учебен план",
-    href: "/plan"
   }
 ];
 
