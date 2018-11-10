@@ -60,7 +60,7 @@ class SimpleTabs extends React.Component {
         <AppBar position="static">
           <Tabs value={value} onChange={this.handleChange}>
             {scheduleClasses.map(klass => (
-              <Tab className={classes.tabHeading} label={klass} />
+              <Tab className={classes.tabHeading} label={klass} key={klass} />
             ))}
           </Tabs>
         </AppBar>
